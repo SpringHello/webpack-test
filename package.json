@@ -15,6 +15,10 @@
     "webpack": "^2.6.1"
   },
   "dependencies": {
-    "merge": "^1.2.0"
+    "express": "^4.15.3",
+    "html-webpack-plugin": "^2.28.0",
+    "merge": "^1.2.0",
+    "webpack-dev-middleware": "^1.10.2",
+    "webpack-hot-middleware": "^2.18.0"
   }
 }
