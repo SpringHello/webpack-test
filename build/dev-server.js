@@ -13,12 +13,21 @@ var compiler = webpack(webpackConfig)
 
 var app = express()
 
-webpackDevMiddleware(compiler,{
+var devMiddleware = webpackDevMiddleware(compiler,{
     publicPath:webpackConfig.output.publicPath
 });
 
-webpackHotMiddleware(compiler,{
-        log:function(){
-            console.log("log")
-        }
+var hotMiddleware = webpackHotMiddleware(compiler,{
+    log:function(){
+        console.log("log")
+    }
 });
+
+app.use(devMiddleware)
+app.use(hotMiddleware)
+
+app.listen(8080)
+
+devMiddleware.waitUntilValid(function(){
+    console.log("> Listen at localhost:8080")
+})
