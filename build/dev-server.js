@@ -13,15 +13,24 @@ var compiler = webpack(webpackConfig)
 
 var app = express()
 
+// force page reload when html-webpack-plugin template changes
+compiler.plugin('compilation', function (compilation) {
+    compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
+        hotMiddleware.publish({ action: 'reload' })
+        cb()
+    })
+})
+
+var spinner =  ora('the project is publishing...').start()
+
 var devMiddleware = webpackDevMiddleware(compiler,{
-    publicPath:webpackConfig.output.publicPath
+    publicPath:webpackConfig.output.publicPath,
+    quiet:true
 });
 
-var hotMiddleware = webpackHotMiddleware(compiler,{
-    log:function(){
-        console.log("log")
-    }
-});
+var hotMiddleware = webpackHotMiddleware(compiler)
+
+
 
 app.use(devMiddleware)
 app.use(hotMiddleware)
@@ -29,5 +38,6 @@ app.use(hotMiddleware)
 app.listen(8080)
 
 devMiddleware.waitUntilValid(function(){
+    spinner.stop()
     console.log("> Listen at localhost:8080")
 })

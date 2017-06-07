@@ -2,12 +2,12 @@ var path = require("path");
 
 module.exports = {
     entry:{
-        app:'./src/main.js'
+        main:'./src/main.js'
     },
     output:{
+        filename:'[name].js',
         path:path.resolve(__dirname,'../dist'),
-        publicPath:'/',
-        filename:'[name].js'
+        publicPath:'/'
     },
     resolve:{
         alias:{
@@ -16,7 +16,9 @@ module.exports = {
     },
     module:{
         rules:[
-            {test:/\.js$/,use:'babel-loader'}
+            {test:/\.js$/, use:{loader: 'babel-loader',options:{compact:false}}},
+            {test:/\.vue$/, use:'vue-loader'}
+            //{test:/\.(png|)$/,use:'file-loader'},
         ]
     }
 }
