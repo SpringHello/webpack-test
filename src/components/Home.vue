@@ -1,6 +1,7 @@
 <template>
     <div>
         <span>{{message}}</span>
+        <el-button>默认按钮</el-button>
     </div>
 </template>
 
@@ -8,7 +9,8 @@
     export default{
         data(){
             return {
-                message:'hello Vue'
+                message:'hello Vue',
+                value:10
             }
         }
     }

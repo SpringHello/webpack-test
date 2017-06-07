@@ -21,11 +21,11 @@ compiler.plugin('compilation', function (compilation) {
     })
 })
 
-var spinner =  ora('the project is publishing...').start()
+//var spinner =  ora('the project is publishing...').start()
 
 var devMiddleware = webpackDevMiddleware(compiler,{
     publicPath:webpackConfig.output.publicPath,
-    quiet:true
+    quiet:false
 });
 
 var hotMiddleware = webpackHotMiddleware(compiler)
@@ -35,9 +35,11 @@ var hotMiddleware = webpackHotMiddleware(compiler)
 app.use(devMiddleware)
 app.use(hotMiddleware)
 
-app.listen(8080)
+
 
 devMiddleware.waitUntilValid(function(){
-    spinner.stop()
+    //spinner.stop()
     console.log("> Listen at localhost:8080")
 })
+
+app.listen(8080)
