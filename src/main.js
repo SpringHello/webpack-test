@@ -6,13 +6,15 @@ import 'iview/dist/styles/iview.css'
 //import 'element-ui/lib/theme-default/index.css'
 import VueRouter from 'vue-router'
 import login from './components/login.vue'
+import register from './components/register.vue'
 
 Vue.use(iView)
 Vue.use(VueRouter)
 
 var RouterConfig = {
     routes:[
-        {path:'/login', component:login}
+        {path:'/login', component:login},
+        {path:'/register', component:register}
     ]
 }
 

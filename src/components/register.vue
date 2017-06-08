@@ -2,7 +2,7 @@
     <div class="login-wrapper">
         <div class="login-form">
             <div class="head">
-                <span>登录</span>
+                <span>注册</span>
             </div>
             <div class="body">
                 <form>
@@ -10,21 +10,25 @@
                         <span :class="{warning:vailForm.loginname.warning}">{{vailForm.loginname.message}}</span>
                         <input type="text" autocomplete="off" v-model="form.loginname" :placeholder="form.loginnamePlaceholder" @blur="vail('loginname')" @focus="focus('loginname')">
                     </div>
-                    <div>
+                    <div style="position:relative">
                         <span>{{vailForm.password.message}}</span>
                         <input type="password" autocomplete="off" v-model="form.password" :placeholder="form.passwordPlaceholder" @blur="vail('password')" @focus="focus('password')">
+                        <label></label>
                     </div>
                     <div style="position:relative">
                         <span>{{vailForm.vailCode.message}}</span>
-                        <input type="text" autocomplete="off" v-model="form.vailCode" name="vailCode" :placeholder="form.vailCodePlaceholder" @blur="vail('vailCode')" @focus="focus('vailCode')">
+                        <input type="text" v-model="form.vailCode" name="vailCode" :placeholder="form.vailCodePlaceholder" @blur="vail('vailCode')" @focus="focus('vailCode')">
                         <button :class="{disabled:disabled}">发送验证码</button>
                     </div>
                 </form>
             </div>
             <div class="foot">
                 <button :class="{disabled:disabled}" :disabled="disabled==true" @click="submit">登录</button>
-                <div>
+                <div style="margin-bottom: 10px;">
                     <span class="checkBox" :class="{agree:agree}" @click="toggle" ></span>&nbsp;<span>我已阅读并同意</span><span style="color:#0EB4FA">《睿云用户使用协议》</span>
+                </div>
+                <div>
+                    <router-link to="/login"><span style="color:#0EB4FA">已有帐号点击登录</span></router-link>
                 </div>
             </div>
         </div>
@@ -39,10 +43,10 @@
             errorMessage:'请输入正确的邮箱'
         },
         password:{
-            placeholder:'密码',
+            placeholder:'请输入至少8位包含字母与数字的密码',
         },
         vailCode:{
-            placeholder:'请输入验证码',
+            placeholder:'请输入您收到的验证码',
         },
     }
     export default{
@@ -53,8 +57,8 @@
                     password:'',
                     vailCode:'',
                     loginnamePlaceholder:'登录邮箱',
-                    passwordPlaceholder:'密码',
-                    vailCodePlaceholder:'请输入验证码',
+                    passwordPlaceholder:'请输入至少8位包含字母与数字的密码',
+                    vailCodePlaceholder:'请输入您收到的验证码',
                 },
                 vailForm:{
                     loginname:{
@@ -83,7 +87,6 @@
                     console.log(messageMap[field].placeholder);
                     this.vailForm[field].message = ''
                     this.form[field+'Placeholder'] = messageMap[field].placeholder
-                    this.vailForm[field].warning = false;
                     return
                 }
 
@@ -219,6 +222,16 @@
                         color: #F24747;
                     }
                 }
+                label{
+                    width:24px;
+                    height:15px;
+                    position:absolute;
+                    display: block;
+                    bottom: 18px;
+                    right: 43px;
+                    cursor:pointer;
+                    background-image:url("../../assets/img/eye.png");
+                }
                 button{
                     width:80px;
                     height:30px;
@@ -251,9 +264,6 @@
                     letter-spacing: 0.83px;
                     cursor:pointer;
                     margin-bottom:15px;
-                    &.disabled{
-                        cursor:not-allowed;
-                    }
                 }
                 .checkBox{
                     width:12px;

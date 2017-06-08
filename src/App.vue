@@ -45,12 +45,12 @@
         .menu-wrapper{
             position: relative;
             height:100%;
-            width:66%;
-            margin:0px auto;
+            width:1200px;
+            margin:0 auto;
             display: flex;
             .logo{
                 height:100%;
-                width:128px;
+                width:123px;
                 padding: 23px 0px;
                 img{
                     width:114px;
@@ -58,31 +58,30 @@
                 }
             }
             .menu-item{
-                width:800px;
                 height:100%;
-                padding:0px 50px;
+                padding:0px 160px;
+                padding-right:120px;
                 ul{
                     font-size:0px;
-                    display: block;
                     height:100%;
                     li{
                         font-family: PingFangSC-Regular;
                         font-size: 18px;
                         color: #FFFFFF;
                         height:100%;
-                        width:20%;
-                        display:inline-block;
-
+                        float:left;
+                        display:list-item;
+                        width:120px;
                         text-align: center;
                         cursor:pointer;
                         position: relative;
                         &:hover::after{
                             position:absolute;
                             content:'';
-                            width:110px;
+                            width:120px;
                             height:1px;
                             bottom:0px;
-                            left:15px;
+                            left:0px;
                             background-color: white;
                         }
                         a{
@@ -97,12 +96,12 @@
             }
             .register-login{
                 height:100%;
-                width:250px;
                 display:flex;
                 a{
                     width:80px;
                     height:35px;
-                    margin: auto 0px;
+                    margin-right:20px;
+                    margin-top:19px;
                     border-radius:5px;
                     background-color: white;
                     text-align:center;
@@ -110,8 +109,10 @@
                     font-size: 18px;
                     color: #358FEF;
                     line-height: 35px;
-                    margin-right:15px;
                     cursor:pointer;
+                    &:last-of-type{
+                        margin-right:0px;
+                    }
                     &.login{
                         color:white;
                         border:1px solid white;
