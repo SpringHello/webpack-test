@@ -6,9 +6,19 @@
             </div>
             <div class="body">
                 <form>
-                    <input type="text" name="loginname" placeholder="登录邮箱">
-                    <input type="text" name="password" placeholder="密码">
-                    <input type="text" name="VailCode" placeholder="请输入验证码">
+                    <div>
+                        <span></span>
+                        <input type="text" v-model="form.loginname" name="loginname" placeholder="登录邮箱" @burl>
+                    </div>
+                    <div>
+                        <span></span>
+                        <input type="password" v-model="form.password" name="password" placeholder="密码">
+                    </div>
+                    <div>
+                        <span></span>
+                        <input type="text" v-model="form.vailCode" name="vailCode" placeholder="请输入验证码">
+                    </div>
+
                 </form>
             </div>
             <div class="foot"></div>
@@ -17,13 +27,29 @@
 </template>
 
 <script type="text/ecmascript-6">
+    export default{
+        data(){
+            return {
+                form:{
+                    loginname:'',
+                    password:'',
+                    vailCode:''
+                }
+            }
+        },
+        created(){
 
+        },
+        methods:{
+
+        }
+    }
 </script>
 
 <style rel="stylesheet/less" lang="less">
     .login-wrapper{
         position: absolute;
-        top: 100px;
+        top: 70px;
         bottom: 0px;
         width: 100%;
         background-image: linear-gradient(-180deg, #4481EB 27%, #04BEFE 100%);

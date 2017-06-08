@@ -40,7 +40,7 @@
         box-sizing: border-box;
     }
     .menu-bar{
-        height:100px;
+        height:70px;
         background-image: linear-gradient(-45deg, #06BBFC 100%, #4183EC 0%);
         .menu-wrapper{
             position: relative;
@@ -51,10 +51,10 @@
             .logo{
                 height:100%;
                 width:128px;
-                padding: 31px 0px;
+                padding: 17px 0px;
                 img{
                     width:128px;
-                    height:38px;
+                    height:35px;
                 }
             }
             .menu-item{
@@ -81,13 +81,13 @@
                             content:'';
                             width:110px;
                             height:1px;
-                            bottom:35px;
+                            bottom:22px;
                             left:15px;
                             background-color: white;
                         }
                         a{
                             display: block;
-                            padding:35px 0px;
+                            padding:19px 0px;
                             width:100%;
                             height:100px;
                             color:white;
@@ -98,7 +98,7 @@
                         content:'';
                         width:110px;
                         height:1px;
-                        bottom:35px;
+                        bottom:22px;
                         left:15px;
                         background-color: white;
                     }
