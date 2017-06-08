@@ -51,10 +51,10 @@
             .logo{
                 height:100%;
                 width:128px;
-                padding: 17px 0px;
+                padding: 23px 0px;
                 img{
-                    width:128px;
-                    height:35px;
+                    width:114px;
+                    height:25px;
                 }
             }
             .menu-item{
@@ -81,26 +81,17 @@
                             content:'';
                             width:110px;
                             height:1px;
-                            bottom:22px;
+                            bottom:0px;
                             left:15px;
                             background-color: white;
                         }
                         a{
                             display: block;
-                            padding:19px 0px;
+                            padding:22px 0px;
                             width:100%;
-                            height:100px;
+                            height:70px;
                             color:white;
                         }
-                    }
-                    .select-item::after{
-                        position:absolute;
-                        content:'';
-                        width:110px;
-                        height:1px;
-                        bottom:22px;
-                        left:15px;
-                        background-color: white;
                     }
                 }
             }
@@ -109,8 +100,8 @@
                 width:250px;
                 display:flex;
                 a{
-                    width:110px;
-                    height:40px;
+                    width:80px;
+                    height:35px;
                     margin: auto 0px;
                     border-radius:5px;
                     background-color: white;
@@ -118,7 +109,7 @@
                     font-family: PingFangSC-Regular;
                     font-size: 18px;
                     color: #358FEF;
-                    line-height: 40px;
+                    line-height: 35px;
                     margin-right:15px;
                     cursor:pointer;
                     &.login{
