@@ -29,6 +29,7 @@
     "iview": "^2.0.0-rc.16",
     "less": "^2.7.2",
     "less-loader": "^4.0.4",
+    "mockjs": "^1.0.1-beta3",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.8",
     "vue": "^2.3.3",

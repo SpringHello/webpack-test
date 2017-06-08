@@ -33,6 +33,19 @@
 
 <script type="text/ecmascript-6">
     import regExp from '../util/regExp'
+    import Mock from 'mockjs'
+    import axios from 'axios'
+    Mock.mock(
+        'http://mockjs', {
+            "userName" : '@name',     //模拟名称
+            "age|1-100":100,          //模拟年龄(1-100)
+            "color"    : "@color",    //模拟色值
+            "date"     : "@date('yyyy-MM-dd')",  //模拟时间
+            "url"      : "@url()",     //模拟url
+            "content"  : "@cparagraph()" //模拟文本
+        }
+    );
+
     var messageMap = {
         loginname:{
             placeholder:'登录邮箱',
@@ -74,7 +87,13 @@
             }
         },
         created(){
-
+            axios.get('http://mockjs')
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         },
         methods:{
             vail(field){
